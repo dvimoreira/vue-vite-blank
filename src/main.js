@@ -21,6 +21,15 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 
+// CHECK AUTHENTICATION
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    next({ path: '/' })
+  } else {
+    next()
+  }
+})
+
 app.use(router)
 app.use(ElementPlus)
 app.mount('#app')
