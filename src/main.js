@@ -23,7 +23,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 // CHECK AUTHENTICATION
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth) {
+  if (to.meta.auth) {
     next({ path: '/' })
   } else {
     next()
