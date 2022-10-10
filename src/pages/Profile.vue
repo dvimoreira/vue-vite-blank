@@ -1,11 +1,11 @@
 <route lang="yaml">
-    path: /
+    path: /profile
     meta:
         layout: Default
 </route>
 
 <template>
-    {{ getTitle.title }}
+    {{ getTitle.title }}2
 </template>
 
 <script setup>

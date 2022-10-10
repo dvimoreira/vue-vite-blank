@@ -1,12 +1,10 @@
-
 {
   "compilerOptions": {
     "jsx": "preserve",
     "types": [
       "vite/client",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client",
-      "element-plus/global"
+      "vite-plugin-vue-layouts/client"
     ]
   },
   "exclude": ["dist", "node_modules"]

@@ -1,7 +1,3 @@
 <template>
-  <div id="app">
-    <main>
-      <RouterView />
-    </main>
-  </div>
+  <RouterView />
 </template>
