@@ -13,9 +13,9 @@ const router = createRouter({
 // CHECK AUTHENTICATION AND DEFINE TITLE
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
-    document.title = to.meta.title + " - Page Name";
+    document.title = to.meta.title + " - iCarros Club";
   } else {
-    document.title = "Page Name";
+    document.title = "iCarros Club";
   }
 
   if (!store.state.authenticated && to.meta.auth) {
