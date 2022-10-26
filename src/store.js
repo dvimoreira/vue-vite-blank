@@ -1,10 +1,16 @@
-import { createPinia } from "pinia";
+import { createStore } from "vuex";
 import jwtToken from "./security/jwt-token";
 import storage from "./security/storage";
-// import useStore from "./store/login.js";
-// const state = useStore();
 
-export default new createPinia({
+export default new createStore({
+  state() {
+    return {
+      user: storage.getObject("user", null),
+      authenticated: storage.get("authenticated", false),
+      token: storage.get("token", null),
+      refreshtoken: storage.get("refreshtoken", null),
+    };
+  },
   mutations: {
     setUser(state, user) {
       state.user = user;
@@ -32,11 +38,11 @@ export default new createPinia({
     user(context, params) {
       context.commit("setUser", params);
     },
-    logout() {
-      //   state.user = null;
-      //   state.authenticated = false;
-      //   state.token = null;
-      //   state.refreshtoken = null;
+    logout(context) {
+      context.state.user = null;
+      context.state.authenticated = false;
+      context.state.token = null;
+      context.state.refreshtoken = null;
       storage.remove("user");
       storage.remove("authenticated");
       storage.remove("token");
