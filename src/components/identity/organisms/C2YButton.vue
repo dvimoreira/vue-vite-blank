@@ -1,17 +1,11 @@
 <script setup>
 const props = defineProps({
-  label: {
-    type: String,
-    default: "",
-  },
+  label: String,
   type: {
     type: String,
     default: "standard",
   },
-  size: {
-    type: String,
-    default: "md",
-  },
+  size: String,
   round: Boolean,
   rounded: Boolean,
   square: Boolean,
@@ -20,10 +14,7 @@ const props = defineProps({
   unelevated: Boolean,
   expand: Boolean,
   disabled: Boolean,
-  color: {
-    type: String,
-    default: "#FFFFFF",
-  },
+  color: String,
 });
 </script>
 

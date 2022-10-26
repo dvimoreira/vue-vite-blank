@@ -37,5 +37,6 @@ module.exports = {
         alphabetical: true,
       },
     ],
+    "vue/require-default-prop": "off",
   },
 };
