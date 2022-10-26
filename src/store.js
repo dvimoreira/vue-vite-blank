@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
-import { createStore } from 'vuex'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import jwtToken from './security/jwt-token'
 import storage from './security/storage'
 
-export default new createStore({
+export default new createPinia({
     state () {
         return {
             user: storage.getObject('user', null),
