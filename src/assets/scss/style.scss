@@ -1,1 +1,5 @@
-@import "./variables.scss";
+@import "./theme.scss";
+
+// GLOBAL CLASS
+.color-primary { color: $colorPrimary; }
+.color-secundary { color: $colorSecundary; }

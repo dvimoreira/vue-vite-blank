@@ -1,23 +1,28 @@
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import { setupLayouts } from 'virtual:generated-layouts'
-import generatedRoutes from 'virtual:generated-pages'
-import store from './store'
+import { createRouter, createWebHistory } from "vue-router";
+import { setupLayouts } from "virtual:generated-layouts";
+import generatedRoutes from "virtual:generated-pages";
+import store from "./store";
 
-const routes = setupLayouts(generatedRoutes)
+const routes = setupLayouts(generatedRoutes);
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
+});
 
-// CHECK AUTHENTICATION
+// CHECK AUTHENTICATION AND DEFINE TITLE
 router.beforeEach((to, from, next) => {
-  if (!store.state.authenticated && to.meta.auth) {
-    next({ path: '/' })
+  if (to.meta.title) {
+    document.title = to.meta.title + " - Page Name";
   } else {
-    next()
+    document.title = "Page Name";
   }
-})
 
-export default router
+  if (!store.state.authenticated && to.meta.auth) {
+    next({ path: "/" });
+  } else {
+    next();
+  }
+});
+
+export default router;

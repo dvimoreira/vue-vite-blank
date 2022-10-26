@@ -1,15 +1,16 @@
 <route lang="yaml">
-    path: /
-    meta:
-        layout: Default
+path: /
+meta:
+  layout: Default
+  title: "Home"
 </route>
 
 <template>
-    {{ getTitle.title }}
+  {{ getTitle.title }}
 </template>
 
 <script setup>
-    const getTitle = useDemo()
+const getTitle = useDemo();
 </script>
 
-<style lang="sass"></style>
+<style lang="scss"></style>

@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from "vite";
+import eslintPlugin from "vite-plugin-eslint";
+import Vue from "@vitejs/plugin-vue";
+import Pages from "vite-plugin-pages";
+import Layouts from "vite-plugin-vue-layouts";
+import Components from "unplugin-vue-components/vite";
+import AutoImport from "unplugin-auto-import/vite";
 
 const config = defineConfig({
   plugins: [
@@ -11,28 +12,34 @@ const config = defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
     Pages({
-      dirs: './src/pages',
+      dirs: "./src/pages",
     }),
     Layouts({
-      layoutsDir: './src/layouts'
+      layoutsDir: "./src/layouts",
     }),
     Components({
-      dirs: ['./src/components'],
-      extensions: ['vue'],
+      dirs: ["./src/components"],
+      extensions: ["vue"],
       deep: true,
       directives: true,
-      importPathTransform: v => v,
+      importPathTransform: (v) => v,
       include: [/\.vue$/, /\.vue\?vue/],
-      exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+      exclude: [
+        /[\\/]node_modules[\\/]/,
+        /[\\/]\.git[\\/]/,
+        /[\\/]\.nuxt[\\/]/,
+      ],
     }),
     AutoImport({
       dts: true,
-      imports: ['vue'],
-      dirs: [
-        './src/composables'
-      ],
+      imports: ["vue"],
+      eslintrc: {
+        enabled: true,
+      },
+      dirs: ["./src/composables"],
     }),
+    eslintPlugin(),
   ],
-})
+});
 
-export default config
+export default config;

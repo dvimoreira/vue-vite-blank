@@ -1,7 +1,7 @@
 export function useDemo() {
-    const title = 'Olá mundo!'
+  const title = "Olá mundo!";
 
-    return {
-        title
-    }
+  return {
+    title,
+  };
 }
